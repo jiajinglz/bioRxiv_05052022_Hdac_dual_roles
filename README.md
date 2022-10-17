@@ -12,7 +12,7 @@ Data contents (Xenopus tropicalis embryos):
 4. pan-H3Kac ChIP-seq in st10.5 gastrula ectoderm /  endoderm under DMSO / TSA treated conditions
 5. RNA-seq in st10.5 gastrula ectoderm /  endoderm under DMSO / TSA treated conditions
 6. RNA-seq in st10.5 gastrula ectoderm /  endoderm under DMSO / VPA treated conditions
-7. (non-disclosed) RNA-seq in st10.5 gastrula ectoderm /  endoderm under ctl / Hdac1 MO injected conditions
+7. (disclosed) RNA-seq in st10.5 gastrula ectoderm /  endoderm under ctl / Hdac1 MO injected conditions
 
 
 
