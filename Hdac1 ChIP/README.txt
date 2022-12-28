@@ -1,3 +1,1 @@
-Short description of scripts:
-
-1. Hdac1 time course ChIP-seq from st8, st9 and st10.5
+R scripts used to generate data/figures related to Hdac1 binding and associated genes.
