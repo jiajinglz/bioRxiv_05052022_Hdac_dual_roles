@@ -3,7 +3,10 @@
 
 Zhou, J. J., Cho, J. S., Han, H., Blitz, I. L., Wang, W., & Cho, K. W. Y. (2022). Histone deacetylase 1 maintains lineage integrity through histone acetylome refinement during early embryogenesis. BioRxiv, 490762. https://doi.org/10.1101/2022.05.05.490762
 
-# Majory data type generated in this paper: ChIP-seq, RNA-seq
+
+
+
+Majory data type generated in this paper: ChIP-seq, RNA-seq
 
 Data contents (Xenopus tropicalis embryos):
 1. Hdac1 ChIP-seq time course (st8, st9, and st10.5) in WT whole embryos
