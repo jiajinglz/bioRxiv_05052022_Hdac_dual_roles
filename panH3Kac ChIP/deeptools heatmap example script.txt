@@ -1,0 +1,83 @@
+#! /bin/bash
+#SBATCH -p standard             ## partition/queue name
+#SBATCH -A kwcho_lab            ## account to charge
+#SBATCH --nodes=1               ## number of nodes the job will use
+#SBATCH --ntasks=1              ## number of processes to launch
+#SBATCH --cpus-per-task=16       ## number of OpenMP threads
+
+module load deeptools/3.5.0
+computeMatrix reference-point -S ../bigwig_deeptools/pcrFree.st105_panh3kac_5ul.bw ../bigwig_deeptools/pcrFree.st105_panh3kac_AC_DMSO_rep1.bw ../bigwig_deeptools/pcrFree.st105_panh3kac_VG_DMSO_rep1.bw -R st105_panh3kac_AC_ONLY_peaks.narrowPeak st105_panh3kac_AC_VG_shared_peaks.narrowPeak st105_panh3kac_VG_ONLY_peaks.narrowPeak -a 2500 -b 2500 --referencePoint center --missingDataAsZero --skipZeros -p 16 -o matrix_whole_ac_vg.mat.gz
+
+
+
+
+#! /bin/bash
+#SBATCH -p standard             ## partition/queue name
+#SBATCH -A kwcho_lab            ## account to charge
+#SBATCH --nodes=1               ## number of nodes the job will use
+#SBATCH --ntasks=1              ## number of processes to launch
+#SBATCH --cpus-per-task=4       ## number of OpenMP threads
+module load deeptools/3.5.0
+plotHeatmap -m matrix_whole_ac_vg.mat.gz -o panH3Kac_whole_ac_vg.tiff --refPointLabel Summit --colorMap Reds --dpi 500 
+
+
+
+
+
+
+#! /bin/bash
+#SBATCH -p standard             ## partition/queue name
+#SBATCH -A kwcho_lab            ## account to charge
+#SBATCH --nodes=1               ## number of nodes the job will use
+#SBATCH --ntasks=1              ## number of processes to launch
+#SBATCH --cpus-per-task=16       ## number of OpenMP threads
+
+module load deeptools/3.5.0
+computeMatrix reference-point -S ../bigwig_deeptools/pcrFree.st105_panh3kac_5ul.bw ../bigwig_deeptools/pcrFree.st105_panh3kac_AC_DMSO_rep1.bw ../bigwig_deeptools/pcrFree.st105_panh3kac_VG_DMSO_rep1.bw -R cluster1n2_h3k27ac_me_on_hdac1_peaks_4Kmean.bed cluster3_h3k27ac_me_on_hdac1_peaks_4Kmean.bed cluster4_h3k27ac_me_on_hdac1_peaks_4Kmean.bed -a 2500 -b 2500 --referencePoint center --missingDataAsZero --skipZeros -p 16 -o matrix_whole_ac_vg_on_hdac1_clusters.mat.gz
+
+
+
+#! /bin/bash
+#SBATCH -p standard             ## partition/queue name
+#SBATCH -A kwcho_lab            ## account to charge
+#SBATCH --nodes=1               ## number of nodes the job will use
+#SBATCH --ntasks=1              ## number of processes to launch
+#SBATCH --cpus-per-task=4       ## number of OpenMP threads
+module load deeptools/3.5.0
+plotHeatmap -m matrix_whole_ac_vg_on_hdac1_clusters.mat.gz -o matrix_whole_ac_vg_on_hdac1_clusters.tiff --refPointLabel Summit --colorMap Reds --dpi 500 
+
+
+
+
+
+
+###########################################################################
+###########################################################################
+############################PLOT TSA#######################################
+
+
+#! /bin/bash
+#SBATCH -p standard             ## partition/queue name
+#SBATCH -A kwcho_lab            ## account to charge
+#SBATCH --nodes=1               ## number of nodes the job will use
+#SBATCH --ntasks=1              ## number of processes to launch
+#SBATCH --cpus-per-task=16       ## number of OpenMP threads
+
+module load deeptools/3.5.0
+computeMatrix reference-point -S ../../hdac1_frog/time_course/bigwig/merged_st9_hdac1_wt.bw ../../hdac1_frog/time_course/bigwig/merged_st105_hdac1_wt.bw ../bigwig_deeptools/pcrFree.st105_panh3kac_5ul.bw ../bigwig_spike-in_scaled/bwScale.pcrFree.st105_panh3kac_AC_DMSO_rep1.bw ../bigwig_spike-in_scaled/pcrFree.st105_panh3kac_AC_TSA_rep1.bw ../bigwig_spike-in_scaled/bwScale.pcrFree.st105_panh3kac_VG_DMSO_rep1.bw ../bigwig_spike-in_scaled/pcrFree.st105_panh3kac_VG_TSA_rep1.bw -R st9_st105_HDAC1_overlap_both_h3k27ac_h3k27me3_peaks.bed st9_st105_HDAC1_overlap_oNLY_h3k27me3_peaks.bed st9_st105_HDAC1_overlap_oNLY_h3k27ac_peaks.bed st9_st105_HDAC1_without_h3k27ac_h3k27me3_peaks.bed -a 2500 -b 2500 --referencePoint center --missingDataAsZero --skipZeros -p 16 -o matrix_dmso_tsa_on_4_hdac1_clusters.mat.gz
+
+
+#! /bin/bash
+#SBATCH -p standard             ## partition/queue name
+#SBATCH -A kwcho_lab            ## account to charge
+#SBATCH --nodes=1               ## number of nodes the job will use
+#SBATCH --ntasks=1              ## number of processes to launch
+#SBATCH --cpus-per-task=4       ## number of OpenMP threads
+module load deeptools/3.5.0
+plotHeatmap -m matrix_dmso_tsa_on_4_hdac1_clusters.mat.gz -o dmso_tsa_on_4_hdac1_clusters.tiff --refPointLabel Summit --colorMap YlOrRd --dpi 500
+
+
+
+
+
+
