@@ -17,7 +17,15 @@ Data contents (Xenopus tropicalis embryos):
 6. H3K18ac ChIP-seq in st9 WT whole embryos
 7. pan-H3Kac ChIP-seq in st10.5 gastrula ectoderm/endoderm under DMSO/TSA treated conditions
 8. RNA-seq in st10.5 gastrula ectoderm/endoderm under DMSO/TSA treated conditions
-9. RNA-seq in st10.5 gastrula ectoderm/endoderm under DMSO/VPA treated conditions
+9. RNA-seq in st10.5 gastrula ectoderm/endoderm under H2O/VPA treated conditions
 
 
 
+Scripts presented here are mainly specific analyses to generate figures, common bioinformatic tools used upstream of the analyses include but are not limited to:
+1. STAR
+2. Samtools
+3. Bedtools
+4. Deeptools
+5. RSEM
+6. Homer
+7. Bioconda: IDR
